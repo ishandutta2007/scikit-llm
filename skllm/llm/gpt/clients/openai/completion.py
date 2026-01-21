@@ -49,6 +49,5 @@ def get_chat_completion(
         model_dict["response_format"] = {"type": "json_object"}
     if not model.startswith(("gpt-o", "gpt-5")):
         model_dict["temperature"] = 0.0
-    print("Setting the temperature ", model_dict.get("temperature"))
     completion = client.chat.completions.create(messages=messages, **model_dict)  # type: ignore
     return completion
